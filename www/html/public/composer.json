@@ -1,0 +1,13 @@
+{
+  "name": "juregrandovec/php-assignment-todo",
+  "require": {
+    "guzzlehttp/guzzle": "~7.0.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "controllers\\": "controllers/",
+      "vendor\\": "vendor/",
+      "vendor\\guzzlehttp\\guzzle\\src\\": "GuzzleHttp/"
+    }
+  }
+}

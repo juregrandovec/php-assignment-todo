@@ -1,3 +1,0 @@
-<?php 
-
-\controllers\SiteController::index();

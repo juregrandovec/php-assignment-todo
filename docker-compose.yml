@@ -1,13 +1,7 @@
 services:
   apache:
-    image: nimmis/apache-php7
+    image: newdeveloper/apache-php-composer
     volumes:
       - ./www/html:/var/www/html
     ports:
       - "80:80"
-      
-  composer:
-      image: prooph/composer:7.3
-      command: install
-      volumes:
-        - ./www:/app
