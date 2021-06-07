@@ -2,6 +2,6 @@ services:
   apache:
     image: newdeveloper/apache-php-composer
     volumes:
-      - ./www/html:/var/www/html
+      - ./html:/var/www/html/public
     ports:
       - "80:80"
