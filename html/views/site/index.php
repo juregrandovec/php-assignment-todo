@@ -6,7 +6,6 @@
 
 use lib\View;
 
-$todoObjects = \GuzzleHttp\json_decode($todoObjects);
 ?>
 
 <table>
@@ -28,7 +27,8 @@ $todoObjects = \GuzzleHttp\json_decode($todoObjects);
 
         echo('<tr style="background-color: ' . $view->currentColor . '">');
         foreach ($todoObject as $property) {
-            echo('<td>' . $view->parseStringFromVariable($property) . '</td>');
+            $fontColor = gettype($property) === 'boolean' ? ($property ? '#09b829' : '#eb4034') : '';
+            echo('<td style="color: ' . $fontColor . '">' . $view->parseStringFromVariable($property) . '</td>');
         }
         echo('</tr>');
     }

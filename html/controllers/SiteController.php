@@ -15,22 +15,31 @@ class SiteController extends Controller
      */
     public function index()
     {
-        return $this->renderPhpFile('views/site/index.php', [
-            'view' => new View(),
-            'todoObjects' => $this->requestPlaceholderTodoData()
-        ]);
+        $result = \GuzzleHttp\json_decode($this->requestPlaceholderTodoData());
+        if ($result) {
+            return $this->renderPhpFile('views/site/index.php', [
+                'view' => new View(),
+                'todoObjects' => $result
+            ]);
+        } else {
+            return $this->renderPhpFile('views/site/error.php');
+        }
     }
 
     /**
      * Makes a request to jsonplaceholder.com and returns an array of stdObjects representing sample "TODO's"
      *
-     * @return string
+     * @return string|null
      * @throws GuzzleException
      */
-    private function requestPlaceholderTodoData(): string
+    private function requestPlaceholderTodoData(): ?string
     {
         $client = new \GuzzleHttp\Client();
         $res = $client->request('GET', 'https://jsonplaceholder.typicode.com/todos');
+
+        if ($res->getStatusCode() !== 200) {
+            return null;
+        }
 
         return $res->getBody()->getContents();
     }

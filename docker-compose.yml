@@ -1,5 +1,5 @@
 services:
-  apache:
+  apache-php-composer:
     image: newdeveloper/apache-php-composer
     volumes:
       - ./html:/var/www/html/public
