@@ -4,15 +4,16 @@ Php-assignment-todo is a simple web application for displaying TODO's.
 
 ## Installation
 
-####The application will run on `port 80`, if that port is already taken, change the port in `docker-compose.yml` file
-To run the service run docker-compose up
+The application will run on `port 80`, if that port is already taken, change the port in `docker-compose.yml` file
+
+* To run the service run docker-compose up
 
 ```bash
 docker-compose up -d
 ```
 
 ## Initialization
-######Should be used when each time when pulling a new version
+Should be used when each time when pulling a new version
 * Connect into the docker container 
 
 ```bash
