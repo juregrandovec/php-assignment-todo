@@ -19,6 +19,10 @@ class ComposerStaticInit1f49eee3ff43fb889f5f5564cbba52e5
             'vendor\\guzzlehttp\\guzzle\\src\\' => 29,
             'vendor\\' => 7,
         ),
+        'l' => 
+        array (
+            'lib\\' => 4,
+        ),
         'c' => 
         array (
             'controllers\\' => 12,
@@ -44,6 +48,10 @@ class ComposerStaticInit1f49eee3ff43fb889f5f5564cbba52e5
         'vendor\\' => 
         array (
             0 => __DIR__ . '/../..' . '/vendor',
+        ),
+        'lib\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/lib',
         ),
         'controllers\\' => 
         array (

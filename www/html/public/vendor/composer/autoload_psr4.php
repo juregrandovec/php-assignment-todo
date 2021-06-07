@@ -8,6 +8,7 @@ $baseDir = dirname($vendorDir);
 return array(
     'vendor\\guzzlehttp\\guzzle\\src\\' => array($baseDir . '/GuzzleHttp'),
     'vendor\\' => array($vendorDir . ''),
+    'lib\\' => array($baseDir . '/lib'),
     'controllers\\' => array($baseDir . '/controllers'),
     'Psr\\Http\\Message\\' => array($vendorDir . '/psr/http-message/src'),
     'Psr\\Http\\Client\\' => array($vendorDir . '/psr/http-client/src'),

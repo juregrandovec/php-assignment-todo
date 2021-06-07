@@ -1,26 +1,38 @@
 <?php
 
 namespace controllers;
-use Exception;
+
+use GuzzleHttp\Exception\GuzzleException;
+use lib\View;
 
 class SiteController extends Controller
 {
+    /**
+     * Renders
+     *
+     * @return false|string
+     * @throws GuzzleException
+     */
     public function index()
     {
-        try {
-            $tableData = null;
-            $client = new \GuzzleHttp\Client();
-            $res = $client->request('GET', 'https://jsonplaceholder.typicode.com/todos');
-//            echo $res->getStatusCode();
-//            echo $res->getHeader('content-type')[0];
-            $body = $res->getBody()->getContents();
-
-            return $this->renderPhpFile('views/site/index.php', [
-                'body' => $body
-            ]);
-        } catch (Exception $e) {
-            return $e;
-        }
-
+        return $this->renderPhpFile('views/site/index.php', [
+            'view' => new View(),
+            'todoObjects' => $this->requestPlaceholderTodoData()
+        ]);
     }
+
+    /**
+     * Makes a request to jsonplaceholder.com and returns an array of stdObjects representing sample "TODO's"
+     *
+     * @return string
+     * @throws GuzzleException
+     */
+    private function requestPlaceholderTodoData(): string
+    {
+        $client = new \GuzzleHttp\Client();
+        $res = $client->request('GET', 'https://jsonplaceholder.typicode.com/todos');
+
+        return $res->getBody()->getContents();
+    }
+
 }
