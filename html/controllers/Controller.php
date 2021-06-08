@@ -13,6 +13,8 @@ class Controller
     }
 
     /**
+     * Renders a php file with set variables
+     *
      * @param string $filename
      * @param array|null $vars
      * @return false|string
