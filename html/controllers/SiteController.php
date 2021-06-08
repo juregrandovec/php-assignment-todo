@@ -3,7 +3,7 @@
 namespace controllers;
 
 use GuzzleHttp\Exception\GuzzleException;
-use lib\View;
+use models\View;
 
 class SiteController extends Controller
 {

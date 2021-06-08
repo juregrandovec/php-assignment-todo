@@ -2,9 +2,9 @@
 
 /* @var View $view */
 
-/* @var object $todoObjects */
+/* @var array $todoObjects */
 
-use lib\View;
+use models\View;
 
 ?>
 
@@ -17,11 +17,11 @@ use lib\View;
         ?>
     </tr>
     <?php
-    $currentValueInFirstCollumn = 0;
+    $currentValueInFirstColumn = 0;
     $color = null;
     foreach ($todoObjects as $todoObject) {
-        if (current($todoObject) !== $currentValueInFirstCollumn) {
-            $currentValueInFirstCollumn = current($todoObject);
+        if (current($todoObject) !== $currentValueInFirstColumn) {
+            $currentValueInFirstColumn = current($todoObject);
             $view->setNextColor();
         }
 

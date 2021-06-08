@@ -11,6 +11,7 @@ The application will run on `port 80`, if that port is already taken, change the
 ```bash
 docker-compose up -d
 ```
+* Follow the instructions under title "Initialization"
 
 ## Initialization
 Should be used when each time when pulling a new version

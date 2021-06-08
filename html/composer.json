@@ -7,7 +7,7 @@
     "psr-4": {
       "controllers\\": "controllers/",
       "vendor\\": "vendor/",
-      "lib\\": "lib/",
+      "models\\": "models/",
       "vendor\\guzzlehttp\\guzzle\\src\\": "GuzzleHttp/"
     }
   }

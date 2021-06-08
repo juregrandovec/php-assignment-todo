@@ -1,6 +1,6 @@
 <?php
 
-namespace lib;
+namespace models;
 
 class View
 {
