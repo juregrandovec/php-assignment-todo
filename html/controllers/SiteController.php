@@ -2,8 +2,12 @@
 
 namespace controllers;
 
+require_once "bootstrap.php";
+
 use GuzzleHttp\Exception\GuzzleException;
+use models\ApiClient;
 use models\View;
+use src\Todo;
 
 class SiteController extends Controller
 {
@@ -13,13 +17,15 @@ class SiteController extends Controller
      * @return false|string
      * @throws GuzzleException
      */
-    public function index()
+    public function index(ApiClient $client)
     {
-        $result = \GuzzleHttp\json_decode($this->requestPlaceholderTodoData());
-        if ($result) {
+        $todos = $client->getTodos();
+        if ($todos) {
+            Todo::createMultipleTodosFromArray($todos, $this->em);
+
             return $this->renderPhpFile('views/site/index.php', [
                 'view' => new View(),
-                'todoObjects' => $result
+                'todoObjects' => $todos
             ]);
         } else {
             return $this->renderPhpFile('views/site/error.php');
@@ -36,12 +42,13 @@ class SiteController extends Controller
     {
         $client = new \GuzzleHttp\Client();
         $res = $client->request('GET', 'https://jsonplaceholder.typicode.com/todos');
+        $contents = $res->getBody()->getContents();
 
         if ($res->getStatusCode() !== 200) {
             return null;
         }
 
-        return $res->getBody()->getContents();
+        return $contents;
     }
 
 }

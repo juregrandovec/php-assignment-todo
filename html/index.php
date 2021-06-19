@@ -1,18 +1,14 @@
 <?php
 
 use controllers\SiteController;
+use models\GuzzleApiClient;
 
-require 'vendor/autoload.php';
-
-//TODO REMOVE
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
+require 'bootstrap.php';
 
 try {
     $siteController = new SiteController();
-    echo($siteController->index());
+    $client = new GuzzleApiClient();
+    echo($siteController->index($client));
 } catch (Exception $e) {
     echo($e);
     die;

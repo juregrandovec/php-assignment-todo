@@ -2,14 +2,22 @@
 
 namespace controllers;
 
+use Doctrine\ORM\EntityManager;
+
 class Controller
 {
+    /**
+     * @var EntityManager
+     */
+    public $em;
+
     /**
      * Controller constructor.
      */
     public function __construct()
     {
-        require 'vendor/autoload.php';
+        require 'bootstrap.php';
+        $this->em = $entityManager;
     }
 
     /**
